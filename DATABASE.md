@@ -16,7 +16,7 @@ CREATE TABLE `members` (
 ```
 
 - จำลองข้อมูลสมาชิก
-   - [member.sql](../member.sql)
+   - [member.sql](/member.sql)
 <br>
 <br>
 
