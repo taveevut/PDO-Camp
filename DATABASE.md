@@ -15,6 +15,8 @@ CREATE TABLE `members` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
+- จำลองข้อมูลสมาชิก
+   - [member.sql](./member.sql)
 <br>
 <br>
 
