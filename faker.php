@@ -12,15 +12,17 @@ $stm->bindParam("tel", $tel, PDO::PARAM_STR);
 $stm->bindParam("nickname", $nickname, PDO::PARAM_STR);
 
 $faker = Faker\Factory::create();
-for ($i = 0; $i < 100; $i++) {
-   $username = $faker->userName;
-   $password = $faker->password;
-   $name = $faker->firstName;
-   $surname = $faker->lastName;
-   $tel = $faker->phoneNumber;
-   $nickname = $faker->name;
+for ($i = 0; $i < 500; $i++) {
+   $data = [
+      'username' =>  $faker->userName,
+      'password' =>  $faker->password,
+      'name' =>  $faker->firstName,
+      'surname' =>  $faker->lastName,
+      'tel' =>  $faker->phoneNumber,
+      'nickname' =>  $faker->name,
+   ];
 
-   $stm->execute();
+   $stm->execute($data);
 }
 
 echo "จำลองข้อมูลได้สำเร็จ";
