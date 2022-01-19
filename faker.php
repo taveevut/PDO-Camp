@@ -23,6 +23,7 @@ for ($i = 0; $i < 500; $i++) {
    ];
 
    $stm->execute($data);
+   $id =  $db_con->lastInsertId();
 }
 
 echo "จำลองข้อมูลได้สำเร็จ";
