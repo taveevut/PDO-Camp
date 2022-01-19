@@ -41,7 +41,7 @@
             <td><?php echo $rows['tel']; ?></td>
             <td><?php echo $rows['created_at']; ?></td>
             <td>
-               <a href="#">ดูรายการ</a>&nbsp;
+               <a href="./view.php?id=<?php echo $rows['id']; ?>">ดูเพิ่มเติม</a>&nbsp;
                <a href="./edit.php?id=<?php echo $rows['id']; ?>">แก้ไขรายการ</a>&nbsp;
                <a href="./process.php?action=DELETE&id=<?php echo $rows['id']; ?>" onclick="return confirm('คุณต้องการลบรายนี้ใช่หรือไม่ !')">ลบรายการ</a>&nbsp;
             </td>
