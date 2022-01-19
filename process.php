@@ -23,13 +23,26 @@ if ($action == "CREATE") {
 }
 
 if ($action == "UPDATE") {
+   $stmt = $db_con->prepare("UPDATE members SET name = :name, surname = :surname, nickname = :nickname, tel = :tel WHERE id = :id");
+   $stmt->bindParam("name", $_POST['name'], PDO::PARAM_STR);
+   $stmt->bindParam("surname", $_POST['surname'], PDO::PARAM_STR);
+   $stmt->bindParam("nickname", $_POST['nickname'], PDO::PARAM_STR);
+   $stmt->bindParam("tel", $_POST['tel'], PDO::PARAM_STR);
+   $stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
+
+   $result = $stmt->execute();
+   if ($result) {
+      header("Location: ./index.php");
+   } else {
+      echo "<script>alert(`เกิดข้อผิดพลาดระหว่างปรับปรุงข้อมูล`)</script>";
+   }
 }
 
 if ($action == "DELETE") {
-   $stm = $db_con->prepare("DELETE FROM members WHERE id = :id ");
-   $stm->bindParam("id", $_GET['id'], PDO::PARAM_INT);
+   $stmt = $db_con->prepare("DELETE FROM members WHERE id = :id ");
+   $stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
 
-   $result = $stm->execute();
+   $result = $stmt->execute();
    if ($result) {
       header("Location: ./index.php");
    } else {
