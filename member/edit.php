@@ -1,6 +1,5 @@
 <?php
-include('database.php');
-
+include('../database.php');
 
 $stmt = $db_con->prepare("SELECT * FROM members WHERE id = :id");
 $stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
