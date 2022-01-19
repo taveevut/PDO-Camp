@@ -16,11 +16,8 @@
    <h1>สร้างรายการ </h1>
 
    <form method="POST"
-         action="process.php"
+         action="process.php?action=CREATE"
          class="rendered-form">
-
-         <input type="hidden" name="action" value="create">
-         
       <div class="formbuilder-text">
          <label>ชื่อผู้ใช้งาน</label><br>
          <input type="text"
