@@ -1,3 +1,5 @@
+<?php include('database.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +14,10 @@
 
 <body>
    <h1>ข้อมูลรายการสมาชิก</h1>
-   <table border="1" cellpadding="5">
+   <table border="1"
+          cellpadding="5">
       <tr>
+         <td>ลำดับที่</td>
          <td>ชื่อผู้ใช้งาน</td>
          <td>รหัสผ่าน</td>
          <td>Vernon Hill</td>
@@ -21,22 +25,23 @@
          <td>เบอร์โทรศัพท์</td>
          <td>วันที่สร้าง</td>
       </tr>
+
+      <?php 
+      $i = 1;
+      $stmt = $db_con->prepare("SELECT *, CONCAT(name, '', surname) as fullname FROM members ORDER BY id DESC");
+      $stmt->execute();
+      while ($rows = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
       <tr>
-         <td>select</td>
-         <td>7d841c2b-40b5-53a8-8fdc-573273722345</td>
-         <td>Lettie Garrett</td>
-         <td>important</td>
-         <td>8Oz5A2</td>
-         <td>8/15/2114</td>
+         <td><?php echo $i++;?></td>
+         <td><?php echo $rows['username'];?></td>
+         <td><?php echo $rows['password'];?></td>
+         <td><?php echo $rows['fullname'];?></td>
+         <td><?php echo $rows['nickname'];?></td>
+         <td><?php echo $rows['tel'];?></td>
+         <td><?php echo $rows['created_at'];?></td>
       </tr>
-      <tr>
-         <td>east</td>
-         <td>8bd2b120-5569-526d-9ee1-bd6a53946f20</td>
-         <td>Anne Schultz</td>
-         <td>ชื่อเล่น</td>
-         <td>vXsb8kWyvc2</td>
-         <td>2/26/2053</td>
-      </tr>
+      <?php }?>
+
    </table>
 </body>
 
