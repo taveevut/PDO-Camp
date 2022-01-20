@@ -2,7 +2,7 @@
 include('../database.php');
 include('../templates/head.php');
 
-$stmt = $db_con->prepare("SELECT * FROM webboards WHERE id = :id");
+$stmt = $db_con->prepare("SELECT * FROM questions WHERE id = :id");
 $stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
 
 $stmt->execute();
@@ -26,40 +26,42 @@ $rows = $stmt->fetch(PDO::FETCH_ASSOC);
          </ul>
       </div>
       <div class="row">
-         <div class="col-md-6">
+         <div class="col-md-12">
             <div class="tile">
                <div class="tile-title-w-btn">
                   <h3 class="title">ดูรายการ #<?php echo $rows['id']; ?></h3>
                </div>
                <div class="tile-body">
-                  <table class="table table-bordered table-sm">
-                     <tr>
-                        <th align="left">ชื่อผู้ใช้งาน</th>
-                        <td><?php echo $rows['username']; ?></td>
-                     </tr>
-                     <tr>
-                        <th align="left">รหัสผ่าน</th>
-                        <td><?php echo $rows['password']; ?></td>
-                     </tr>
-                     <tr>
-                        <th align="left">ชื่อ</th>
-                        <td><?php echo $rows['name']; ?></td>
-                     </tr>
-                     <tr>
-                        <th align="left">สกุล</th>
-                        <td><?php echo $rows['surname']; ?></td>
-                     </tr>
-                     <tr>
-                        <th align="left">ชื่อเล่น</th>
-                        <td><?php echo $rows['nickname']; ?></td>
-                     </tr>
-                     <tr>
-                        <th align="left">เบอร์โทรศัพท์</th>
-                        <td><?php echo $rows['tel']; ?></td>
-                     </tr>
-                  </table>
+                  <h6><?php echo $rows['title']; ?></h6>
+                  <?php echo $rows['detail']; ?>
+               </div>
+               <div class="tile-footer text-mute">
+                  <cite>วันที่สร้าง: <?php echo $rows['created_at']; ?></cite>
                </div>
             </div>
+
+            <div class="tile">
+               <div class="tile-title-w-btn">
+                  <h3 class="title">ความคิดเห็น</h3>
+               </div>
+               <div class="tile-body">
+                  <?php for ($i = 1; $i <= 5; $i++) { ?>
+                     <div class="tile">
+                        <div class="tile-title-w-btn">
+                           <h3 class="title">#<?php echo $i; ?></h3>
+                        </div>
+                        <div class="tile-body">
+                           <h6><?php echo $rows['title']; ?></h6>
+                           <?php echo $rows['detail']; ?>
+                        </div>
+                        <div class="tile-footer text-mute">
+                           <cite>วันที่สร้าง: 1/1/2067</cite>
+                        </div>
+                     </div>
+                  <?php } ?>
+               </div>
+            </div>
+
          </div>
       </div>
    </main>

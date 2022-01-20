@@ -28,33 +28,15 @@ include('../templates/head.php');
                   </div>
                   <div class="tile-body">
                      <div class="row">
-                        <div class="form-group col-md-6">
-                           <label class="form-label">ชื่อผู้ใช้งาน</label><br>
-                           <input type="text" class="form-control" placeholder="ระบุชื่อผู้ใช้งาน" name="username" required="required" aria-required="true">
-                        </div>
-                        <div class="form-group col-md-6">
-                           <label class="form-label">รหัสผ่าน</label><br>
-                           <input type="password" class="form-control" placeholder="ระบุรหัสผ่าน" name="password" required="required" aria-required="true">
+                        <div class="form-group col-md-12">
+                           <label class="form-label">หัวข้อ</label><br>
+                           <input type="text" class="form-control" placeholder="ระบุหัวข้อ" name="title" required="required" aria-required="true">
                         </div>
                      </div>
                      <div class="row">
-                        <div class="form-group col-md-4">
-                           <label class="form-label">ชื่อ</label><br>
-                           <input type="text" class="form-control" placeholder="ระบุชื่อ" name="name" required="required" aria-required="true">
-                        </div>
-                        <div class="form-group col-md-4">
-                           <label class="form-label">สกุล</label><br>
-                           <input type="text" class="form-control" placeholder="ระบุสกุล" name="surname" required="required" aria-required="true">
-                        </div>
-                        <div class="form-group col-md-4">
-                           <label class="form-label">ชื่อเล่น</label><br>
-                           <input type="text" class="form-control" placeholder="ระบุชื่อเล่น" name="nickname">
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="form-group col-md-6">
-                           <label class="form-label">เบอร์โทรศัพท์</label><br>
-                           <input type="tel" class="form-control" placeholder="ระบุเบอร์โทรศัพท์" name="tel">
+                        <div class="form-group col-md-12">
+                           <label class="form-label">รายละเอียด</label><br>
+                           <textarea class="form-control" placeholder="ระบุรายละเอียด" name="detail" required="required" rows="3"></textarea>
                         </div>
                      </div>
                   </div>

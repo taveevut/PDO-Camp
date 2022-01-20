@@ -2,10 +2,10 @@
 require_once 'vendor/autoload.php';
 include('../database.php');
 
-$stm = $db_con->prepare("INSERT INTO replies (detail, commenter, question_id) VALUES (:detail, :commenter, :question_id)");
-$stm->bindParam("detail", $title, PDO::PARAM_STR);
-$stm->bindParam("commenter", $detail, PDO::PARAM_STR);
-$stm->bindParam("question_id", $view, PDO::PARAM_INT);;
+$stmt = $db_con->prepare("INSERT INTO replies (detail, commenter, question_id) VALUES (:detail, :commenter, :question_id)");
+$stmt->bindParam("detail", $title, PDO::PARAM_STR);
+$stmt->bindParam("commenter", $detail, PDO::PARAM_STR);
+$stmt->bindParam("question_id", $view, PDO::PARAM_INT);;
 
 $faker = Faker\Factory::create();
 for ($i = 0; $i < 100; $i++) {
@@ -15,5 +15,5 @@ for ($i = 0; $i < 100; $i++) {
       'question_id' => rand(1, 20),
    ];
 
-   $stm->execute($data);
+   $stmt->execute($data);
 }

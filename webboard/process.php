@@ -3,12 +3,12 @@ include('../database.php');
 
 $action = $_GET['action'];
 if ($action == "CREATE") {
-   $stmt = $db_con->prepare("INSERT INTO questions (title, detail, view, reply, member_id) VALUES (:title, :detail, :view, :reply, :member_id)");
-   $stm->bindParam("title", $title, PDO::PARAM_STR);
-   $stm->bindParam("detail", $detail, PDO::PARAM_STR);
-   $stm->bindParam("view", $view, PDO::PARAM_INT);
-   $stm->bindParam("reply", $reply, PDO::PARAM_STR);
-   $stm->bindParam("member_id", $member_id, PDO::PARAM_INT);
+   $stmt = $db_con->prepare("INSERT INTO questions (title, detail, member_id) VALUES (:title, :detail, :member_id)");
+   $stmt->bindParam("title", $_POST['title'], PDO::PARAM_STR);
+   $stmt->bindParam("detail", $_POST['detail'], PDO::PARAM_STR);
+   $stmt->bindParam("member_id", $member_id, PDO::PARAM_INT);
+
+   $member_id = rand(1, 20); // get seesion member id
 
    $result = $stmt->execute();
    if ($result) {
@@ -20,12 +20,9 @@ if ($action == "CREATE") {
 }
 
 if ($action == "UPDATE") {
-   $stmt = $db_con->prepare("UPDATE questions SET title = :title, detail = :detail, view = :view, reply = :reply, member_id = :member_id WHERE id = :id");
-   $stm->bindParam("title", $title, PDO::PARAM_STR);
-   $stm->bindParam("detail", $detail, PDO::PARAM_STR);
-   $stm->bindParam("view", $view, PDO::PARAM_INT);
-   $stm->bindParam("reply", $reply, PDO::PARAM_STR);
-   $stm->bindParam("member_id", $member_id, PDO::PARAM_INT);
+   $stmt = $db_con->prepare("UPDATE questions SET title = :title, detail = :detail WHERE id = :id");
+   $stmt->bindParam("title", $_POST['title'], PDO::PARAM_STR);
+   $stmt->bindParam("detail", $_POST['detail'], PDO::PARAM_STR);
    $stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
 
    $result = $stmt->execute();
