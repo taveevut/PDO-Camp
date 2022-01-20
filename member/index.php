@@ -40,6 +40,9 @@
          $page = $_GET['page'];
       }
 
+      $prev_page = $page - 1;
+      $next_page = $page + 1;
+
       $start = ($page - 1) * $limit;
       $no = $page > 1 ? $start + 1 : 1;
 
@@ -68,13 +71,17 @@
    </table>
    <p>
       <?php
-      echo "<a href=\"?page=1\">หน้าแรก</a>&nbsp;&nbsp;";
+      if ($prev_page && $num_pages >= 5) {
+         echo "<a href=\"?page=1\">หน้าแรก</a>&nbsp;&nbsp;";
+      }
 
       for ($n = 1; $n <= $num_pages; $n++) {
          echo "<a href=\"?page=$n\">$n</a>&nbsp;&nbsp;";
       }
 
-      echo "<a href=\"?page=$num_pages\">สุดท้าย</a>&nbsp;&nbsp;";
+      if (($page != $num_pages) && $num_pages >= 5) {
+         echo "<a href=\"?page=$num_pages\">สุกท้าย</a>&nbsp;&nbsp;";
+      }
       ?>
    </p>
 
