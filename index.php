@@ -1,5 +1,5 @@
 
-<?php include('./templates/header.php'); ?>
+<?php include('./templates/head.php'); ?>
 
 <body class="app sidebar-mini">
    <!-- Navbar-->
