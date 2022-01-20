@@ -80,9 +80,13 @@
       }
 
       for ($n = 1; $n <= $num_pages; $n++) {
-         echo "<a href=\"?page=$n\">$n</a>&nbsp;&nbsp;";
+         if ($n == $page) {
+            echo "<a><strong>$n</strong></a>&nbsp;&nbsp;";
+         } else {
+            echo "<a href=\"?page=$n\">$n</a>&nbsp;&nbsp;";
+         }
       }
-      
+
       if ($page != $num_pages) {
          echo "<a href=\"?page=$next_page\">ถัดไป&#10509;</a>&nbsp;&nbsp;";
       }
