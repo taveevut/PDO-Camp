@@ -53,7 +53,7 @@
       foreach ($results as $rows) {
       ?>
          <tr>
-            <td><?php echo $no; ?></td>
+            <td><?php echo $no++; ?></td>
             <td><?php echo $rows['username']; ?></td>
             <td><?php echo $rows['password']; ?></td>
             <td><?php echo $rows['fullname']; ?></td>
