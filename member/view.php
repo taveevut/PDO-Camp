@@ -1,5 +1,6 @@
 <?php
 include('../database.php');
+include('../templates/head.php');
 
 $stmt = $db_con->prepare("SELECT * FROM members WHERE id = :id");
 $stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
@@ -8,28 +9,30 @@ $stmt->execute();
 $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<body class="app sidebar-mini">
+   <!-- Navbar-->
+   <?php include('../templates/header.php'); ?>
 
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>ดูรายการสมาชิก</title>
-   <link rel="stylesheet" href="../styles/bootstrap/css/bootstrap.min.css">
-   <link rel="stylesheet" href="../styles/main.css">
-</head>
-
-<body>
-   <div class="container">
-      <div class="row justify-content-center">
-         <div class="col-md-5 pt-5">
-            <div class="card">
-               <div class="card-header">
-                  <h1>ดูรายการ #<?php echo $rows['id']; ?> </h1>
+   <main class="app-content">
+      <div class="app-title">
+         <div>
+            <h1><i class="fa fa-user"></i> ข้อมูลสมาชิก</h1>
+            <p>แสดงข้อมูลรายการสามารถเพิ่ม/แก้ไข/ลบข้อมูลได้</p>
+         </div>
+         <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a href="./index.php">ข้อมูลรายการ</a></li>
+            <li class="breadcrumb-item">ดูรายการ</li>
+         </ul>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="tile">
+               <div class="tile-title-w-btn">
+                  <h3 class="title">ดูรายการ #<?php echo $rows['id']; ?></h3>
                </div>
-               <div class="card-body">
-                  <table class="table">
+               <div class="tile-body">
+                  <table class="table table-bordered table-sm">
                      <tr>
                         <th align="left">ชื่อผู้ใช้งาน</th>
                         <td><?php echo $rows['username']; ?></td>
@@ -59,7 +62,10 @@ $rows = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
          </div>
       </div>
-   </div>
+   </main>
+
+   <?php include('../templates/footer.php'); ?>
+
 </body>
 
 </html>
