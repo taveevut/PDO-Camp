@@ -15,7 +15,7 @@
 <body>
    <div class="container">
       <div class="row">
-         <div class="col-md-12">
+         <div class="col-md-12 pt-5">
             <h1>ข้อมูลรายการสมาชิก </h1>
             <p class="text-start">
                <a class="btn btn-outline-primary" href="./create.php">+สร้างรายการ</a>
