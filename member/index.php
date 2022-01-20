@@ -29,14 +29,14 @@ include('../templates/head.php');
                   <table class="table table-sm table-hover">
                      <thead>
                         <tr>
-                           <th scope="col" class="text-center">ลำดับที่</th>
-                           <th scope="col" class="text-center">ชื่อผู้ใช้งาน</th>
-                           <th scope="col" class="text-center">รหัสผ่าน</th>
-                           <th scope="col" class="text-center">ชื่อ-สกุล</th>
-                           <th scope="col" class="text-center">ชื่อเล่น</th>
-                           <th scope="col" class="text-center">เบอร์โทรศัพท์</th>
-                           <th scope="col" class="text-center">วันที่สร้าง</th>
-                           <th scope="col" class="text-center">จัดการ</th>
+                           <th scope="col" class="text-center text-nowrap">ลำดับที่</th>
+                           <th scope="col" class="text-center text-nowrap">ชื่อผู้ใช้งาน</th>
+                           <th scope="col" class="text-center text-nowrap">รหัสผ่าน</th>
+                           <th scope="col" class="text-center text-nowrap">ชื่อ-สกุล</th>
+                           <th scope="col" class="text-center text-nowrap">ชื่อเล่น</th>
+                           <th scope="col" class="text-center text-nowrap">เบอร์โทรศัพท์</th>
+                           <th scope="col" class="text-center text-nowrap">วันที่สร้าง</th>
+                           <th scope="col" class="text-center text-nowrap">จัดการ</th>
                         </tr>
                      </thead>
                      <tbody>

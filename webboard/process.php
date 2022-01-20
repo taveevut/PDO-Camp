@@ -1,17 +1,14 @@
 <?php
 include('../database.php');
 
-// var_dump($_POST);
-// exit;
 $action = $_GET['action'];
 if ($action == "CREATE") {
-   $stmt = $db_con->prepare("INSERT INTO webboards (username, password, name, surname, tel, nickname) VALUES (:username, :password, :name, :surname, :tel, :nickname)");
-   $stmt->bindParam("username", $_POST['username'], PDO::PARAM_STR);
-   $stmt->bindParam("password", $_POST['password'], PDO::PARAM_STR);
-   $stmt->bindParam("name", $_POST['name'], PDO::PARAM_STR);
-   $stmt->bindParam("surname", $_POST['surname'], PDO::PARAM_STR);
-   $stmt->bindParam("tel", $_POST['tel'], PDO::PARAM_STR);
-   $stmt->bindParam("nickname", $_POST['nickname'], PDO::PARAM_STR);
+   $stmt = $db_con->prepare("INSERT INTO questions (title, detail, view, reply, member_id) VALUES (:title, :detail, :view, :reply, :member_id)");
+   $stm->bindParam("title", $title, PDO::PARAM_STR);
+   $stm->bindParam("detail", $detail, PDO::PARAM_STR);
+   $stm->bindParam("view", $view, PDO::PARAM_INT);
+   $stm->bindParam("reply", $reply, PDO::PARAM_STR);
+   $stm->bindParam("member_id", $member_id, PDO::PARAM_INT);
 
    $result = $stmt->execute();
    if ($result) {
@@ -23,11 +20,12 @@ if ($action == "CREATE") {
 }
 
 if ($action == "UPDATE") {
-   $stmt = $db_con->prepare("UPDATE webboards SET name = :name, surname = :surname, nickname = :nickname, tel = :tel WHERE id = :id");
-   $stmt->bindParam("name", $_POST['name'], PDO::PARAM_STR);
-   $stmt->bindParam("surname", $_POST['surname'], PDO::PARAM_STR);
-   $stmt->bindParam("nickname", $_POST['nickname'], PDO::PARAM_STR);
-   $stmt->bindParam("tel", $_POST['tel'], PDO::PARAM_STR);
+   $stmt = $db_con->prepare("UPDATE questions SET title = :title, detail = :detail, view = :view, reply = :reply, member_id = :member_id WHERE id = :id");
+   $stm->bindParam("title", $title, PDO::PARAM_STR);
+   $stm->bindParam("detail", $detail, PDO::PARAM_STR);
+   $stm->bindParam("view", $view, PDO::PARAM_INT);
+   $stm->bindParam("reply", $reply, PDO::PARAM_STR);
+   $stm->bindParam("member_id", $member_id, PDO::PARAM_INT);
    $stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
 
    $result = $stmt->execute();
@@ -39,7 +37,7 @@ if ($action == "UPDATE") {
 }
 
 if ($action == "DELETE") {
-   $stmt = $db_con->prepare("DELETE FROM webboards WHERE id = :id ");
+   $stmt = $db_con->prepare("DELETE FROM questions WHERE id = :id ");
    $stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
 
    $result = $stmt->execute();
