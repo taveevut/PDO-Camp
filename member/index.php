@@ -75,8 +75,16 @@
          echo "<a href=\"?page=1\">หน้าแรก</a>&nbsp;&nbsp;";
       }
 
+      if ($prev_page) {
+         echo "<a href=\"?page=$prev_page\">&#10510;ก่อนหน้า</a>&nbsp;&nbsp;";
+      }
+
       for ($n = 1; $n <= $num_pages; $n++) {
          echo "<a href=\"?page=$n\">$n</a>&nbsp;&nbsp;";
+      }
+      
+      if ($page != $num_pages) {
+         echo "<a href=\"?page=$next_page\">ถัดไป&#10509;</a>&nbsp;&nbsp;";
       }
 
       if (($page != $num_pages) && $num_pages >= 5) {
