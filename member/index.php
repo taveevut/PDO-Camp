@@ -28,12 +28,29 @@
       </tr>
 
       <?php
-      $i = 1;
-      $stmt = $db_con->prepare("SELECT *, CONCAT(name, ' ', surname) as fullname FROM members ORDER BY id DESC LIMIT 50");
+      $limit = 15;
+      $stmt = $db_con->prepare("SELECT * FROM members");
       $stmt->execute();
-      while ($rows = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+      $num_row = $stmt->rowCount();
+      $num_pages = ceil($num_row / $limit);
+
+      if (!isset($_GET['page'])) {
+         $page = 1;
+      } else {
+         $page = $_GET['page'];
+      }
+
+      $start = ($page - 1) * $limit;
+      $no = $page > 1 ? $start + 1 : 1;
+
+      $stmt = $db_con->prepare("SELECT *, CONCAT(name, ' ', surname) as fullname FROM members ORDER BY id DESC LIMIT $start, $limit");
+      $stmt->execute();
+
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      foreach ($results as $rows) {
+      ?>
          <tr>
-            <td><?php echo $i++; ?></td>
+            <td><?php echo $no; ?></td>
             <td><?php echo $rows['username']; ?></td>
             <td><?php echo $rows['password']; ?></td>
             <td><?php echo $rows['fullname']; ?></td>
@@ -49,6 +66,18 @@
       <?php } ?>
 
    </table>
+   <p>
+      <?php
+      echo "<a href=\"?page=1\">หน้าแรก</a>&nbsp;&nbsp;";
+
+      for ($n = 1; $n <= $num_pages; $n++) {
+         echo "<a href=\"?page=$n\">$n</a>&nbsp;&nbsp;";
+      }
+
+      echo "<a href=\"?page=$num_pages\">สุดท้าย</a>&nbsp;&nbsp;";
+      ?>
+   </p>
+
 </body>
 
 </html>
