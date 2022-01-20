@@ -80,10 +80,21 @@
       }
 
       for ($n = 1; $n <= $num_pages; $n++) {
-         if ($n == $page) {
-            echo "<a><strong>$n</strong></a>&nbsp;&nbsp;";
-         } else {
+         $start_link = $page - 5;
+         $end_link = $page + 5;
+
+         if ($n != $page && $n <= $start_link) {
+            if (!isset($prev_dot)) {
+               echo $prev_dot = "<a href=\"#\">...</a>&nbsp;&nbsp;";
+            }
+         } elseif ($n != $page && $n >= $start_link && $n <= $end_link) {
             echo "<a href=\"?page=$n\">$n</a>&nbsp;&nbsp;";
+         } elseif ($n == $page) {
+            echo "<a><strong>$n</strong></a>&nbsp;&nbsp;";
+         } elseif ($end_link != $num_pages) {
+            if (!isset($next_dot)) {
+               echo $next_dot = "<a><span>...</span></a>&nbsp;&nbsp;";
+            }
          }
       }
 
