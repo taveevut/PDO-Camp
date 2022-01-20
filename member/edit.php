@@ -16,42 +16,54 @@ $rows = $stmt->fetch(PDO::FETCH_ASSOC);
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>แก้ไขรายการสมาชิก</title>
+   <link rel="stylesheet" href="../styles/bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" href="../styles/main.css">
 </head>
 
 <body>
-   <h1>แก้ไขรายการ </h1>
-
-   <form method="POST" action="process.php?action=UPDATE&id=<?php echo $rows['id']; ?>" class="rendered-form">
-      <div class="formbuilder-text">
-         <label>ชื่อผู้ใช้งาน</label><br>
-         <input type="text" name="username" disabled value="<?php echo $rows['username']; ?>" required="required" aria-required="true">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-md-5 pt-5">
+            <form method="POST" action="process.php?action=UPDATE&id=<?php echo $rows['id']; ?>" class="rendered-form">
+               <div class="card">
+                  <div class="card-header">
+                     <h1>แก้ไขรายการ</h1>
+                  </div>
+                  <div class="card-body">
+                     <div class="mb-3">
+                        <label class="form-label">ชื่อผู้ใช้งาน</label><br>
+                        <input type="text" class="form-control" value="<?php echo $rows['username']; ?>" placeholder="ระบุชื่อผู้ใช้งาน" name="username" disabled required="required" aria-required="true">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">รหัสผ่าน</label><br>
+                        <input type="password" class="form-control" value="<?php echo $rows['password']; ?>" placeholder="ระบุรหัสผ่าน" name="password" disabled required="required" aria-required="true">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">ชื่อ</label><br>
+                        <input type="text" class="form-control" value="<?php echo $rows['name']; ?>" placeholder="ระบุชื่อ" name="name" required="required" aria-required="true">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">สกุล</label><br>
+                        <input type="text" class="form-control" value="<?php echo $rows['surname']; ?>" placeholder="ระบุสกุล" name="surname" required="required" aria-required="true">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">ชื่อเล่น</label><br>
+                        <input type="text" class="form-control" value="<?php echo $rows['nickname']; ?>" placeholder="ระบุชื่อเล่น" name="nickname">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">เบอร์โทรศัพท์</label><br>
+                        <input type="tel" class="form-control" value="<?php echo $rows['tel']; ?>" placeholder="ระบุเบอร์โทรศัพท์" name="tel">
+                     </div>
+                  </div>
+                  <div class="card-footer">
+                     <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
+                     <button class="btn btn-secondary" type="reset">ยกเลิก</button>
+                  </div>
+               </div>
+            </form>
+         </div>
       </div>
-      <div class="formbuilder-text">
-         <label>รหัสผ่าน</label><br>
-         <input type="password" name="password" disabled value="<?php echo $rows['password']; ?>" required="required" aria-required="true">
-      </div>
-      <div class="formbuilder-text">
-         <label>ชื่อ</label><br>
-         <input type="text" name="name" value="<?php echo $rows['name']; ?>" required="required" aria-required="true">
-      </div>
-      <div class="formbuilder-text">
-         <label>สกุล</label><br>
-         <input type="text" name="surname" value="<?php echo $rows['surname']; ?>" required="required" aria-required="true">
-      </div>
-      <div class="formbuilder-text">
-         <label>ชื่อเล่น</label><br>
-         <input type="text" name="nickname" value="<?php echo $rows['nickname']; ?>">
-      </div>
-      <div class="formbuilder-text">
-         <label>เบอร์โทรศัพท์</label><br>
-         <input type="tel" name="tel" value="<?php echo $rows['tel']; ?>">
-      </div>
-      <div class="formbuilder-text"><br>
-         <button type="submit">บันทึกข้อมูล</button>
-         <button type="reset">ยกเลิก</button>
-      </div>
-   </form>
+   </div>
 </body>
 
 </html>
