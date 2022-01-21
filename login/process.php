@@ -1,6 +1,6 @@
 <?php
 
-include('../database.php');
+include('../config/database.php');
 
 if (!empty($_POST)) {
    $stmt = $db_con->prepare("SELECT * FROM members WHERE username = :username AND password = :password ");

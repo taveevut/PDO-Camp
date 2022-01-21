@@ -1,6 +1,6 @@
 <?php
 require_once 'vendor/autoload.php';
-include('../database.php');
+include('../config/database.php');
 
 $stmt = $db_con->prepare("INSERT INTO questions (title, detail, view, reply, member_id) VALUES (:title, :detail , :view , :reply, :member_id)");
 $stmt->bindParam("title", $title, PDO::PARAM_STR);

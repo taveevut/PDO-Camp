@@ -1,6 +1,6 @@
 <?php
 require_once 'vendor/autoload.php';
-include('../database.php');
+include('../config/database.php');
 
 $stm = $db_con->prepare("INSERT INTO members (username, password, name, surname, tel, nickname) VALUES (:username, :password, :name, :surname, :tel, :nickname)");
 $stm->bindParam("username", $username, PDO::PARAM_STR);
