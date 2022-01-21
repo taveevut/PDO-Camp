@@ -3,6 +3,7 @@ include('../../config/database.php');
 include('../../config/constant.php');
 include('../is_logged.php');
 include('../templates/head.php');
+include('../../helpers/url_helper.php');
 ?>
 
 <body class="app sidebar-mini">
@@ -22,6 +23,9 @@ include('../templates/head.php');
       </div>
       <div class="row">
          <div class="col-md-12">
+
+            <?php echo alert(); ?>
+
             <div class="tile">
                <div class="tile-title-w-btn">
                   <h3 class="title">ข้อมูลรายการ</h3>

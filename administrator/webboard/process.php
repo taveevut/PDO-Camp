@@ -15,11 +15,14 @@ if ($action == "CREATE") {
 
    $result = $stmt->execute();
    if ($result) {
-      // echo "<script>alert(`บันทึกข้อมูลได้สำเร็จ`)</script>";
-      redirect_admin('webboard/index.php');
+      $_SESSION['alt']['message'] = '<strong>บันทึกข้อมูลได้สำเร็จ!</strong> ระบบทำการบันทึกข้อมูลได้สำเสร็จ';
+      $_SESSION['alt']['type'] = 'success';
    } else {
-      echo "<script>alert(`เกิดข้อผิดพลาดระหว่างบันทึกข้อมูล`)</script>";
+      $_SESSION['alt']['message'] = '<strong>เกิดข้อผิดพลาด!</strong> เกิดข้อผิดพลาดในระหว่างการบันทึกข้อมูล กรุณาตรวจสอบใหม่อีกครั้ง';
+      $_SESSION['alt']['type'] = 'danger';
    }
+
+   redirect_admin('webboard/index.php');
 }
 
 if ($action == "UPDATE") {
@@ -30,10 +33,14 @@ if ($action == "UPDATE") {
 
    $result = $stmt->execute();
    if ($result) {
-      redirect_admin('webboard/index.php');
+      $_SESSION['alt']['message'] = '<strong>แก้ไขข้อมูลได้สำเร็จ!</strong> ระบบทำการแก้ไขข้อมูลได้สำเสร็จ';
+      $_SESSION['alt']['type'] = 'success';
    } else {
-      echo "<script>alert(`เกิดข้อผิดพลาดระหว่างปรับปรุงข้อมูล`)</script>";
+      $_SESSION['alt']['message'] = '<strong>เกิดข้อผิดพลาด!</strong> เกิดข้อผิดพลาดในระหว่างการแก้ไขข้อมูล กรุณาตรวจสอบใหม่อีกครั้ง';
+      $_SESSION['alt']['type'] = 'danger';
    }
+
+   redirect_admin('webboard/index.php');
 }
 
 if ($action == "DELETE") {
@@ -42,8 +49,12 @@ if ($action == "DELETE") {
 
    $result = $stmt->execute();
    if ($result) {
-      redirect_admin('webboard/index.php');
+      $_SESSION['alt']['message'] = '<strong>ลบข้อมูลได้สำเร็จ!</strong> ระบบทำการลบข้อมูลได้สำเสร็จ';
+      $_SESSION['alt']['type'] = 'success';
    } else {
-      echo "<script>alert(`เกิดข้อผิดพลาดระหว่างลบข้อมูล`)</script>";
+      $_SESSION['alt']['message'] = '<strong>เกิดข้อผิดพลาด!</strong> เกิดข้อผิดพลาดในระหว่างการลบข้อมูล กรุณาตรวจสอบใหม่อีกครั้ง';
+      $_SESSION['alt']['type'] = 'danger';
    }
+
+   redirect_admin('webboard/index.php');
 }
