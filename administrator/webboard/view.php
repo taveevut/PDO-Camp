@@ -45,20 +45,28 @@ $rows = $stmt->fetch(PDO::FETCH_ASSOC);
                   <h3 class="title">ความคิดเห็น</h3>
                </div>
                <div class="tile-body">
-                  <?php for ($i = 1; $i <= 5; $i++) { ?>
+                  <?php
+                  $stmt = $db_con->prepare("SELECT * FROM replies WHERE question_id = :question_id");
+                  $stmt->bindParam("question_id", $_GET['id']);
+                  $stmt->execute();
+
+                  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                  foreach ($results as $key => $value) {
+                  ?>
                      <div class="tile">
                         <div class="tile-title-w-btn">
-                           <h3 class="title">#<?php echo $i; ?></h3>
+                           <h3 class="title">#<?php echo $value['commenter']; ?></h3>
                         </div>
                         <div class="tile-body">
-                           <h6><?php echo $rows['title']; ?></h6>
-                           <?php echo $rows['detail']; ?>
+                           <?php echo $value['detail']; ?>
                         </div>
                         <div class="tile-footer text-mute">
-                           <cite>วันที่สร้าง: 1/1/2067</cite>
+                           <cite>วันที่สร้าง: <?php echo $value['created_at']; ?></cite>
                         </div>
                      </div>
-                  <?php } ?>
+                  <?php
+                  }
+                  ?>
                </div>
             </div>
 
