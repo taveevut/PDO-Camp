@@ -2,6 +2,7 @@
 include('../../database.php');
 include('../../constant.php');
 include('../is_logged.php');
+include('../../helpers/url_helper.php');
 
 $action = $_GET['action'];
 if ($action == "CREATE") {
@@ -16,7 +17,7 @@ if ($action == "CREATE") {
    $result = $stmt->execute();
    if ($result) {
       // echo "<script>alert(`บันทึกข้อมูลได้สำเร็จ`)</script>";
-      header("Location: ./index.php");
+      redirect_admin('member/index.php');
    } else {
       echo "<script>alert(`เกิดข้อผิดพลาดระหว่างบันทึกข้อมูล`)</script>";
    }
@@ -32,7 +33,7 @@ if ($action == "UPDATE") {
 
    $result = $stmt->execute();
    if ($result) {
-      header("Location: ./index.php");
+      redirect_admin('member/index.php');
    } else {
       echo "<script>alert(`เกิดข้อผิดพลาดระหว่างปรับปรุงข้อมูล`)</script>";
    }
@@ -44,7 +45,7 @@ if ($action == "DELETE") {
 
    $result = $stmt->execute();
    if ($result) {
-      header("Location: ./index.php");
+      redirect_admin('member/index.php');
    } else {
       echo "<script>alert(`เกิดข้อผิดพลาดระหว่างลบข้อมูล`)</script>";
    }
