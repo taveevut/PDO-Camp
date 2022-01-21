@@ -12,7 +12,7 @@
    $(document).ready(function() {
       $('#summernote').summernote({
          lang: 'th-TH',
-         height: 300
+         height: 100
       });
    });
 </script>

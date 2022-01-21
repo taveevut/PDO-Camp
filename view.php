@@ -66,6 +66,35 @@ $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
          </div>
       </div>
+      <div class="row">
+         <div class="col-md-12">
+            <form method="POST" action="process.php?action=REPLY&id=<?php echo $rows['id']; ?>" class="rendered-form">
+               <div class="tile">
+                  <div class="tile-title-w-btn">
+                     <h3 class="title">ตอบคำถาม</h3>
+                  </div>
+                  <div class="tile-body">
+                     <div class="row">
+                        <div class="form-group col-md-4">
+                           <label class="form-label">ชื่อเล่น</label><br>
+                           <input type="text" class="form-control" placeholder="ระบุชื่อเล่น" name="commenter" required="required" aria-required="true">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="form-group col-md-12">
+                           <label class="form-label">รายละเอียด</label><br>
+                           <textarea class="form-control" id="summernote" placeholder="ระบุรายละเอียด" name="detail" required="required" rows="3"></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tile-footer">
+                     <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
+                     <button class="btn btn-secondary" type="reset">ยกเลิก</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
    </main>
 
    <?php include('./templates/footer.php'); ?>
