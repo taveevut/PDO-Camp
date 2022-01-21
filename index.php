@@ -1,32 +1,12 @@
-
-<?php include('./templates/head.php'); ?>
-
-<body class="app sidebar-mini">
-   <!-- Navbar-->
-   <?php include('./templates/header.php'); ?>
-
-   <main class="app-content">
-      <div class="app-title">
-         <div>
-            <h1><i class="fa fa-dashboard"></i> Blank Page</h1>
-            <p>Start a beautiful journey here</p>
-         </div>
-         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="#">Blank Page</a></li>
-         </ul>
-      </div>
-      <div class="row">
-         <div class="col-md-12">
-            <div class="tile">
-               <div class="tile-body">Create a beautiful dashboard</div>
-            </div>
-         </div>
-      </div>
-   </main>
-
-   <?php include('./templates/footer.php'); ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h1>Webboard</h1>
 </body>
-
 </html>

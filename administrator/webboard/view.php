@@ -1,5 +1,5 @@
 <?php
-include('../database.php');
+include('../../database.php');
 include('../templates/head.php');
 
 $stmt = $db_con->prepare("SELECT * FROM questions WHERE id = :id");

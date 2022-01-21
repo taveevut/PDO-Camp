@@ -1,6 +1,12 @@
 <?php
-include('../database.php');
+include('../../database.php');
 include('../templates/head.php');
+
+$stmt = $db_con->prepare("SELECT * FROM questions WHERE id = :id");
+$stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);
+
+$stmt->execute();
+$rows = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <body class="app sidebar-mini">
@@ -16,27 +22,27 @@ include('../templates/head.php');
          <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
             <li class="breadcrumb-item"><a href="./index.php">ข้อมูลรายการ</a></li>
-            <li class="breadcrumb-item">สร้างรายการ</li>
+            <li class="breadcrumb-item">แก้ไขรายการ</li>
          </ul>
       </div>
       <div class="row">
          <div class="col-md-10">
-            <form method="POST" action="process.php?action=CREATE" class="rendered-form">
+            <form method="POST" action="process.php?action=UPDATE&id=<?php echo $rows['id']; ?>" class="rendered-form">
                <div class="tile">
                   <div class="tile-title-w-btn">
-                     <h3 class="title">สร้างรายการ</h3>
+                     <h3 class="title">แก้ไขรายการ</h3>
                   </div>
                   <div class="tile-body">
                      <div class="row">
                         <div class="form-group col-md-12">
                            <label class="form-label">หัวข้อ</label><br>
-                           <input type="text" class="form-control" placeholder="ระบุหัวข้อ" name="title" required="required" aria-required="true">
+                           <input type="text" class="form-control" placeholder="ระบุหัวข้อ" name="title" value="<?php echo $rows['title']; ?>" required="required" aria-required="true">
                         </div>
                      </div>
                      <div class="row">
                         <div class="form-group col-md-12">
                            <label class="form-label">รายละเอียด</label><br>
-                           <textarea class="form-control" id="summernote" placeholder="ระบุรายละเอียด" name="detail" required="required" rows="3"></textarea>
+                           <textarea class="form-control" placeholder="ระบุรายละเอียด" id="summernote" name="detail" required="required" rows="3"><?php echo $rows['detail']; ?></textarea>
                         </div>
                      </div>
                   </div>

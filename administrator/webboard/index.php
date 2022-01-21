@@ -1,5 +1,5 @@
 <?php
-include('../database.php');
+include('../../database.php');
 include('../templates/head.php');
 ?>
 
@@ -10,7 +10,7 @@ include('../templates/head.php');
    <main class="app-content">
       <div class="app-title">
          <div>
-            <h1><i class="fa fa-user"></i> ข้อมูลสมาชิก</h1>
+            <h1><i class="fa fa-pencil-square"></i> ข้อมูลเว็บบอร์ด</h1>
             <p>แสดงข้อมูลรายการสามารถเพิ่ม/แก้ไข/ลบข้อมูลได้</p>
          </div>
          <ul class="app-breadcrumb breadcrumb">
@@ -30,11 +30,9 @@ include('../templates/head.php');
                      <thead>
                         <tr>
                            <th scope="col" class="text-center text-nowrap">ลำดับที่</th>
-                           <th scope="col" class="text-center text-nowrap">ชื่อผู้ใช้งาน</th>
-                           <th scope="col" class="text-center text-nowrap">รหัสผ่าน</th>
-                           <th scope="col" class="text-center text-nowrap">ชื่อ-สกุล</th>
-                           <th scope="col" class="text-center text-nowrap">ชื่อเล่น</th>
-                           <th scope="col" class="text-center text-nowrap">เบอร์โทรศัพท์</th>
+                           <th scope="col" class="text-center text-nowrap">หัวข้อคำถาม</th>
+                           <th scope="col" class="text-center text-nowrap">จำนวนคนอ่าน</th>
+                           <th scope="col" class="text-center text-nowrap">จำนวนคนตอบ</th>
                            <th scope="col" class="text-center text-nowrap">วันที่สร้าง</th>
                            <th scope="col" class="text-center text-nowrap">จัดการ</th>
                         </tr>
@@ -43,7 +41,7 @@ include('../templates/head.php');
 
                         <?php
                         $limit = 15;
-                        $stmt = $db_con->prepare("SELECT * FROM members");
+                        $stmt = $db_con->prepare("SELECT * FROM questions");
                         $stmt->execute();
                         $num_row = $stmt->rowCount();
                         $num_pages = ceil($num_row / $limit);
@@ -60,7 +58,7 @@ include('../templates/head.php');
                         $start = ($page - 1) * $limit;
                         $no = $page > 1 ? $start + 1 : 1;
 
-                        $stmt = $db_con->prepare("SELECT *, CONCAT(name, ' ', surname) as fullname FROM members ORDER BY id DESC LIMIT $start, $limit");
+                        $stmt = $db_con->prepare("SELECT * FROM questions ORDER BY id DESC LIMIT $start, $limit");
                         $stmt->execute();
 
                         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -68,11 +66,9 @@ include('../templates/head.php');
                         ?>
                            <tr>
                               <td><?php echo $no++; ?></td>
-                              <td><?php echo $rows['username']; ?></td>
-                              <td><?php echo $rows['password']; ?></td>
-                              <td><?php echo $rows['fullname']; ?></td>
-                              <td><?php echo $rows['nickname']; ?></td>
-                              <td><?php echo $rows['tel']; ?></td>
+                              <td><?php echo $rows['title']; ?></td>
+                              <td><?php echo $rows['view']; ?></td>
+                              <td><?php echo $rows['reply']; ?></td>
                               <td><?php echo $rows['created_at']; ?></td>
                               <td width="1" class="text-nowrap">
                                  <a class="btn btn-outline-secondary btn-sm" href="./view.php?id=<?php echo $rows['id']; ?>">ดูเพิ่มเติม</a>&nbsp;
