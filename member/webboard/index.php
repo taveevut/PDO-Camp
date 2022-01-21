@@ -41,7 +41,8 @@ include('../templates/head.php');
 
                         <?php
                         $limit = 15;
-                        $stmt = $db_con->prepare("SELECT * FROM questions");
+                        $stmt = $db_con->prepare("SELECT * FROM questions WHERE member_id = :member_id ");
+                        $stmt->bindParam("member_id", $_SESSION["login_id"]);
                         $stmt->execute();
                         $num_row = $stmt->rowCount();
                         $num_pages = ceil($num_row / $limit);
@@ -58,7 +59,8 @@ include('../templates/head.php');
                         $start = ($page - 1) * $limit;
                         $no = $page > 1 ? $start + 1 : 1;
 
-                        $stmt = $db_con->prepare("SELECT * FROM questions ORDER BY id DESC LIMIT $start, $limit");
+                        $stmt = $db_con->prepare("SELECT * FROM questions WHERE member_id = :member_id  ORDER BY id DESC LIMIT $start, $limit");
+                        $stmt->bindParam("member_id", $_SESSION["login_id"]);
                         $stmt->execute();
 
                         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

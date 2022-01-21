@@ -6,10 +6,7 @@ if ($action == "CREATE") {
    $stmt = $db_con->prepare("INSERT INTO questions (title, detail, member_id) VALUES (:title, :detail, :member_id)");
    $stmt->bindParam("title", $_POST['title'], PDO::PARAM_STR);
    $stmt->bindParam("detail", $_POST['detail'], PDO::PARAM_STR);
-   $stmt->bindParam("member_id", $member_id, PDO::PARAM_INT);
-
-   $member_id = rand(1, 20); // get seesion member id
-
+   $stmt->bindParam("member_id", $_SESSION["login_id"], PDO::PARAM_INT);
    $result = $stmt->execute();
    if ($result) {
       // echo "<script>alert(`บันทึกข้อมูลได้สำเร็จ`)</script>";
