@@ -1,6 +1,8 @@
 <?php
 include('../database.php');
+include('../constant.php');
 include('./is_logged.php');
+
 include('./templates/head.php');
 ?>
 
