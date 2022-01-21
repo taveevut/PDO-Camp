@@ -1,5 +1,6 @@
 <?php
 include('../../database.php');
+include('../is_logged.php');
 include('../templates/head.php');
 
 $stmt = $db_con->prepare("SELECT * FROM members WHERE id = :id");

@@ -1,5 +1,10 @@
 <?php
 include('../database.php');
+
+if (!isset($_SESSION["login_id"]) || $_SESSION["login_type"] != 2) {
+   header("Location: ../index.php");
+}
+
 include('./templates/head.php');
 ?>
 

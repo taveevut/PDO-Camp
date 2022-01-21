@@ -7,7 +7,7 @@
       </li>
       <!-- User Menu-->
       <li>
-         <a class="app-nav__item" href="./login"><i class="fa fa-user fa-lg"></i></a>
+         <a class="app-nav__item" href="./login"><i class="fa fa-sign-in fa-lg"></i> เข้าสู่ระบบ</a>
       </li>
    </ul>
 </header>

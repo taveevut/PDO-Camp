@@ -1,8 +1,7 @@
 <?php
 include('../../database.php');
+include('../is_logged.php');
 
-// var_dump($_POST);
-// exit;
 $action = $_GET['action'];
 if ($action == "CREATE") {
    $stmt = $db_con->prepare("INSERT INTO members (username, password, name, surname, tel, nickname) VALUES (:username, :password, :name, :surname, :tel, :nickname)");
