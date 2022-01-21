@@ -16,6 +16,10 @@ if (!empty($_POST)) {
       $_SESSION["login_name"] = $rows["name"]; // เก็บค่าในรูปแบบของ session
       $_SESSION["login_surname"] = $rows["surname"]; // เก็บค่าในรูปแบบของ session
 
-      header("Location: ../administrator/index.php");
+      if ($rows['type'] == 1) {
+         header("Location: ../administrator/index.php");
+      } elseif ($rows['type'] == 2) {
+         header("Location: ../member/index.php");
+      }
    }
 }
