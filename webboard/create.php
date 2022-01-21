@@ -21,9 +21,7 @@ include('../templates/head.php');
       </div>
       <div class="row">
          <div class="col-md-10">
-            <form method="POST"
-                  action="process.php?action=CREATE"
-                  class="rendered-form">
+            <form method="POST" action="process.php?action=CREATE" class="rendered-form">
                <div class="tile">
                   <div class="tile-title-w-btn">
                      <h3 class="title">สร้างรายการ</h3>
@@ -32,32 +30,19 @@ include('../templates/head.php');
                      <div class="row">
                         <div class="form-group col-md-12">
                            <label class="form-label">หัวข้อ</label><br>
-                           <input type="text"
-                                  class="form-control"
-                                  placeholder="ระบุหัวข้อ"
-                                  name="title"
-                                  required="required"
-                                  aria-required="true">
+                           <input type="text" class="form-control" placeholder="ระบุหัวข้อ" name="title" required="required" aria-required="true">
                         </div>
                      </div>
                      <div class="row">
                         <div class="form-group col-md-12">
                            <label class="form-label">รายละเอียด</label><br>
-                           <textarea class="form-control"
-                                     id="summernote"
-                                     placeholder="ระบุรายละเอียด"
-                                     name="detail"
-                                     required="required"
-                                     rows="3"></textarea>
-
+                           <textarea class="form-control" id="summernote" placeholder="ระบุรายละเอียด" name="detail" required="required" rows="3"></textarea>
                         </div>
                      </div>
                   </div>
                   <div class="tile-footer">
-                     <button class="btn btn-primary"
-                             type="submit">บันทึกข้อมูล</button>
-                     <button class="btn btn-secondary"
-                             type="reset">ยกเลิก</button>
+                     <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
+                     <button class="btn btn-secondary" type="reset">ยกเลิก</button>
                   </div>
                </div>
             </form>

@@ -26,7 +26,7 @@ $rows = $stmt->fetch(PDO::FETCH_ASSOC);
          </ul>
       </div>
       <div class="row">
-         <div class="col-md-6">
+         <div class="col-md-10">
             <form method="POST" action="process.php?action=UPDATE&id=<?php echo $rows['id']; ?>" class="rendered-form">
                <div class="tile">
                   <div class="tile-title-w-btn">
@@ -42,7 +42,7 @@ $rows = $stmt->fetch(PDO::FETCH_ASSOC);
                      <div class="row">
                         <div class="form-group col-md-12">
                            <label class="form-label">รายละเอียด</label><br>
-                           <textarea class="form-control" placeholder="ระบุรายละเอียด" name="detail" required="required" rows="3"><?php echo $rows['detail']; ?></textarea>
+                           <textarea class="form-control" placeholder="ระบุรายละเอียด" id="summernote" name="detail" required="required" rows="3"><?php echo $rows['detail']; ?></textarea>
                         </div>
                      </div>
                   </div>
