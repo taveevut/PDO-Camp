@@ -59,6 +59,11 @@ ALTER TABLE `replies`
   ADD CONSTRAINT `fk_replies_questions` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE;
 ```
 
+- สร้างคอลัมน์ `type` ในตาราง member
+```sql
+ALTER TABLE `members` ADD `type` ENUM('1','2') NOT NULL DEFAULT '2' COMMENT '1=admin, 2=member' AFTER `nickname`;
+```
+
 - จำลองข้อมูลสมาชิก
    - [members.sql](/members.sql)
 <br>
