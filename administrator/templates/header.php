@@ -58,7 +58,7 @@
          <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="../logout.php"><i class="fa fa-sign-out fa-lg"></i> ออกจากระบบ</a></li>
+            <li><a class="dropdown-item" href="./logout.php"><i class="fa fa-sign-out fa-lg"></i> ออกจากระบบ</a></li>
          </ul>
       </li>
    </ul>
