@@ -13,6 +13,7 @@ if (!empty($_POST)) {
       echo 'ไม่พบ username, password ในระบบ กรุณาตรวจสอบใหม่อีกครั้ง';
    } else {
       $_SESSION["login_id"] = $rows["id"]; // เก็บค่าในรูปแบบของ session
+      $_SESSION["login_username"] = $rows["username"]; // เก็บค่าในรูปแบบของ session
       $_SESSION["login_name"] = $rows["name"]; // เก็บค่าในรูปแบบของ session
       $_SESSION["login_surname"] = $rows["surname"]; // เก็บค่าในรูปแบบของ session
 

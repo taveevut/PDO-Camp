@@ -1,5 +1,7 @@
-
-<?php include('./templates/head.php'); ?>
+<?php
+include('../database.php');
+include('./templates/head.php');
+?>
 
 <body class="app sidebar-mini">
    <!-- Navbar-->
