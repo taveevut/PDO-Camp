@@ -1,5 +1,6 @@
 <?php
 include('./config/database.php');
+include('./config/constant.php');
 include('./templates/head.php');
 ?>
 

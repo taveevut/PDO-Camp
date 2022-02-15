@@ -1,3 +1,3 @@
 <?php
 
-defined('ROOT_PROJECT') || define('ROOT_PROJECT', '/skru-pdo-camp');
+defined('ROOT_PROJECT') || define('ROOT_PROJECT', '/@training/skru-pdo-camp');
