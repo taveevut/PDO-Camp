@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible"
+         content="IE=edge">
+   <meta name="viewport"
+         content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+   <div>
+      <canvas id="myChart"></canvas>
+   </div>
+   <script>
+      const labels = [
+         "มกราคม",
+         "กุมภาพันธ์",
+         "มีนาคม",
+         "เมษายน",
+         "พฤษภาคม",
+         "มิถุนายน",
+         "กรกฎาคม",
+         "สิงหาคม",
+         "กันยายน",
+         "ตุลาคม",
+         "พฤศจิกายน",
+         "ธันวาคม"
+      ];
+
+      const data = {
+         labels: labels,
+         datasets: [{
+            label: 'ยอดขายกล้วย',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [
+               0,
+               10,
+               5,
+               2,
+               20,
+               30,
+               45,
+               5,
+               8,
+               10,
+               11,
+               40
+            ],
+         }, {
+            label: 'ยอดขายมะม่วง',
+            backgroundColor: 'rgb(68,155,15)',
+            borderColor: 'rgb(68,155,15)',
+            data: [
+               45,
+               5,
+               8,
+               10,
+               11,
+               40,
+               0,
+               10,
+               5,
+               2,
+               20,
+               30
+            ],
+         }, ]
+      };
+
+      const config = {
+         type: 'line',
+         data: data,
+         options: {}
+      };
+
+      const myChart = new Chart(
+         document.getElementById('myChart'),
+         config
+      );
+   </script>
+
+
+</body>
+
+</html>
