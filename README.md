@@ -8,13 +8,6 @@
  - [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
  - [HTML Snippets](https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets)
 
-## จำลองเซิร์ฟเวอร์
- - [Xampp](https://drive.google.com/drive/folders/19EuOKJG5kHHGafFIANtvixllRzi2nD4A?usp=sharing)
- - [ออกแบบตารางฐานข้อมูล](/DATABASE.md)
-
-## Demo
- - [itopx-board.ga](http://itopx-board.ga/)
-
 <br>
 <br>
 
