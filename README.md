@@ -8,6 +8,9 @@
  - [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
  - [HTML Snippets](https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets)
 
+## Open source HTML5 Charts
+ - [chartjs](https://www.chartjs.org/)
+
 <br>
 <br>
 
